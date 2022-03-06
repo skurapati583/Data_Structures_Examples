@@ -3,13 +3,15 @@ package com.ds.examples.arrays;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-public class ReverseArrayExampleTest {
+class ReverseArrayExampleTest {
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "[{index}] => Input Array is: {0}, Expected Reverse Array is : {1}")
+    @Tag("Arrays")
     @MethodSource("inputAndExpectedArraysProviderSuccessful")
     void testReverseOfArraySuccessful(int[] inputArr, int[] expectedArray) {
         
@@ -18,7 +20,8 @@ public class ReverseArrayExampleTest {
         Assertions.assertArrayEquals(expectedArray, actualArray);
     }
 
-    @ParameterizedTest
+    @ParameterizedTest(name = "[{index}] => Input Array is: {0}, Expected Incorrect Reverse Array is : {1}")
+    @Tag("Arrays")
     @MethodSource("inputAndExpectedArraysProviderFailure")
     void testReverseOfArrayFailure(int[] inputArr, int[] expectedArray) {
         
