@@ -1,5 +1,6 @@
 package com.ds.examples.arrays;
 
+import java.util.Arrays;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Assertions;
@@ -13,13 +14,13 @@ class KthMinMaxExampleTest {
     @ParameterizedTest(name = "[{index}] => Input Array is: {0}, K : {1} and Expected Min: {2} and Expected Max: {3}")
     @Tag("Arrays")
     @MethodSource("inputArrayAndExpectedKthMinMaxProvider")
-    void testKthMaxOfArraySuccessful(final int[] inputArr, int k, int expectedMin, int expectedMax) {
+    void testKthMinAndMaxOfArraySuccessful(final int[] inputArr, int k, int expectedMin, int expectedMax) {
         
-       int actualMax = new KthMinMaxExample().getKthMaximumValue(inputArr, k);
-       int actualMin = new KthMinMaxExample().getKthMinimumValue(inputArr, k);
+       int actualMax = new KthMinMaxExample().getKthMaximumValue(inputArr.clone(), k);
+       int actualMin = new KthMinMaxExample().getKthMinimumValue(inputArr.clone(), k);
 
        Assertions.assertEquals(expectedMax, actualMax);
-       //Assertions.assertEquals(expectedMin, actualMin);
+       Assertions.assertEquals(expectedMin, actualMin);
     }
 
     static Stream<Arguments> inputArrayAndExpectedKthMinMaxProvider() {
