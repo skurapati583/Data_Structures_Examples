@@ -12,7 +12,7 @@ public class SortingNumbersOfOneTwoAndZeroExampleTest {
 
     @ParameterizedTest(name = "[{index}] => Input Array is: {0}, Expected Array: {1}")
     @Tag("Arrays")
-    @MethodSource("inputArrayAndExpectedKthMinMaxProvider")
+    @MethodSource("inputArrayForSortingWithZeroesOnesAndTwos")
     void testSortingOfArrayWithZeroesOnesAndTwosSuccessfully(final int[] inputArr, int[] expectedArr) {
         
         int[] actualArr = new SortingNumbersOfOneTwoAndZeroExample().sortArrayWithZeroOnesAndTwoes(inputArr);
@@ -21,7 +21,7 @@ public class SortingNumbersOfOneTwoAndZeroExampleTest {
       
     }
 
-    static Stream<Arguments> inputArrayAndExpectedKthMinMaxProvider() {
+    static Stream<Arguments> inputArrayForSortingWithZeroesOnesAndTwos() {
         
         return Stream.of(
                 Arguments.of(
